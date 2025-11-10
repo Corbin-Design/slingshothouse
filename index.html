@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Slingshot House — One-Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+      html, body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
+      body { margin: 0; }
+    </style>
+  </head>
+  <body class="bg-[#F5EFE7]">
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel" data-presets="react,env">
+
+// Slingshot House — One-Page Website
+function SlingshotHousePage() {
+  const renderCount = React.useRef(0);
+  renderCount.current += 1;
+
+  const pillars = [
+    { title: "Make Friends", desc: "Belonging is the spark. Friendship is the revolution.", tag: "Community" },
+    { title: "Tell Stories", desc: "We tell the truth beautifully. We make people feel again.", tag: "Story" },
+    { title: "Give Gifts", desc: "We go first. We give more than makes sense. Joy is our engine.", tag: "Generosity" },
+    { title: "Throw Parties", desc: "Joy is resistance. Celebration is how we fight back.", tag: "Celebration" }
+  ];
+
+  const stats = [
+    { k: "Dreams Started", v: "48" },
+    { k: "People Impacted", v: "217" },
+    { k: "Stories Produced", v: "36" },
+    { k: "Funds Deployed", v: "$32K" },
+  ];
+
+  const stories = [
+    { tag: "Entrepreneurship", title: "A Coffee Cart Became a Neighborhood Living Room", desc: "A simple cart turned daily hellos into a creative family." },
+    { tag: "Film", title: "A Short Film Helped a City Remember Its Strength", desc: "Resilience on screen shifted how people saw themselves." },
+    { tag: "Music", title: "A Living-Room Session Sparked a Collective", desc: "Songs became friendships; friendships became movement." },
+    { tag: "Community", title: "A Small Group Became a Creative Hub", desc: "Friends invited friends. A house for the brave was born." },
+  ];
+
+  const onCtaClick = (label) => () => console.log("CTA", label);
+
+  return (
+    <div className="min-h-screen bg-[#F5EFE7] text-zinc-900 selection:bg-black selection:text-white">
+      <header className="sticky top-0 z-50 bg-[#F5EFE7]/80 backdrop-blur border-b border-black/10">
+        <div className="mx-auto max-w-6xl h-14 px-4 flex items-center justify-between">
+          <a href="#top" className="text-xs font-black tracking-[0.2em] uppercase" onClick={onCtaClick("nav:logo")}>Slingshot House</a>
+          <nav className="hidden md:flex items-center gap-8 text-sm font-medium tracking-[0.12em] uppercase">
+            <a href="#impact" className="hover:opacity-70" onClick={onCtaClick("nav:impact")}>Impact</a>
+            <a href="#model" className="hover:opacity-70" onClick={onCtaClick("nav:model")}>Our Model</a>
+            <a href="#work" className="hover:opacity-70" onClick={onCtaClick("nav:stories")}>Stories</a>
+            <a href="#transparency" className="hover:opacity-70" onClick={onCtaClick("nav:transparency")}>Transparency</a>
+          </nav>
+          <a href="#give" className="rounded-full bg-orange-500 text-zinc-950 px-3 py-1.5 text-sm font-semibold hover:bg-orange-600" onClick={onCtaClick("nav:give")}>Give</a>
+        </div>
+      </header>
+
+      <section id="top" className="relative overflow-hidden bg-[#F5EFE7] text-zinc-900">
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center select-none">
+          <span className="font-black text-[40vw] leading-none text-zinc-900/5 tracking-tight">HOUSE</span>
+        </div>
+        <div className="relative mx-auto max-w-6xl px-4 pt-24 pb-20 text-center">
+          <h1 className="font-black leading-[0.85] tracking-tight text-[14vw] md:text-[8.5rem]">SLINGSHOT HOUSE</h1>
+          <p className="mt-4 max-w-3xl mx-auto text-base md:text-xl text-zinc-900">A house for builders. A movement disguised as a nonprofit.</p>
+          <div className="mt-5 flex justify-center gap-3">
+            <a href="#give" className="rounded-lg bg-orange-500 text-zinc-950 px-6 py-3 text-sm font-black tracking-tight hover:bg-orange-600" onClick={onCtaClick("hero:fuel")}>Fuel the Movement</a>
+            <a href="#work" className="rounded-lg border border-zinc-900 px-6 py-3 text-sm font-black tracking-tight hover:bg-zinc-900 hover:text-white" onClick={onCtaClick("hero:see-work")}>See the Work</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="impact" className="border-y border-black/10 bg-white/60">
+        <div className="mx-auto max-w-6xl px-4 py-10 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+          {stats.map((s) => (
+            <div key={s.k}>
+              <div className="text-4xl md:text-5xl font-black tracking-tight">{s.v}</div>
+              <div className="mt-1 text-xs uppercase tracking-[0.25em] text-zinc-600">{s.k}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="model" className="bg-orange-500 text-zinc-950">
+        <div className="mx-auto max-w-6xl px-4 py-16">
+          <div className="max-w-3xl">
+            <p className="uppercase text-[0.7rem] font-black tracking-[0.25em]">This is what we do</p>
+            <h2 className="mt-2 font-black text-5xl md:text-6xl leading-tight tracking-tight">Our Model</h2>
+            <p className="mt-3 text-zinc-900 max-w-prose">Slingshot House is a launchpad for big ideas and brave hearts. We don’t just fund projects — we fuel movements. Here’s how:</p>
+          </div>
+          <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {pillars.map((p, i) => (
+              <div key={p.title} className="rounded-2xl bg-[#F5EFE7] p-4 border border-black shadow-[0_1px_0_0_rgba(0,0,0,0.7)]">
+                <div className="flex items-center justify-between">
+                  <span className="text-[0.65rem] uppercase font-bold tracking-[0.25em] text-zinc-600">Step {i+1}</span>
+                  <span className="text-xs font-bold">→</span>
+                </div>
+                <h3 className="mt-2 font-black text-2xl tracking-[-0.015em] uppercase">{p.title}</h3>
+                <p className="mt-2 text-sm text-zinc-900">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-black/10">
+        <div className="mx-auto max-w-6xl px-4 py-14 grid md:grid-cols-12 gap-6 items-center">
+          <div className="md:col-span-7">
+            <h3 className="font-black text-5xl leading-tight tracking-tight">Stories that light fires.</h3>
+            <p className="mt-4 text-zinc-900 max-w-prose">We were never meant to play small. We exist to capture hearts and inspire action through creativity and connection. Our stories gather people, change rooms, and spark movements of joy.</p>
+            <div className="mt-5 flex gap-3">
+              <a href="#work" className="rounded-full bg-zinc-950 text-white px-5 py-3 text-sm font-semibold hover:opacity-90" onClick={onCtaClick("featured:explore-stories")}>Explore Stories</a>
+              <a href="#share" className="rounded-full border border-zinc-950 px-5 py-3 text-sm font-semibold hover:bg-zinc-950 hover:text-white" onClick={onCtaClick("featured:share-yours")}>Share Yours</a>
+            </div>
+          </div>
+          <div className="md:col-span-5"><div></div><p className="mt-2 text-xs text-zinc-500">Featured field story</p></div>
+        </div>
+      </section>
+
+      <section id="work" className="bg-[#0C0C0A] text-white">
+        <div className="mx-auto max-w-6xl px-4 py-14">
+          <div className="flex items-end justify-between gap-4">
+            <div>
+              <p className="uppercase text-[0.7rem] font-black tracking-[0.25em] text-zinc-500">Field Notes</p>
+              <h3 className="font-black text-5xl leading-tight tracking-tight">Latest from the House</h3>
+            </div>
+            <a href="#share" className="rounded-full bg-zinc-950 text-white px-5 py-3 text-sm font-semibold hover:opacity-90" onClick={onCtaClick("stories:share")}>Share Your Story</a>
+          </div>
+          <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {stories.map((s) => (
+              <article key={s.title} className="rounded-2xl bg-[#141410]/70 backdrop-blur border border-[#2a2a25] shadow-[0_1px_0_0_rgba(0,0,0,0.7)] hover:translate-y-[2px] transition">
+                <div className="p-4">
+                  <p className="text-[0.65rem] uppercase font-bold tracking-[0.25em] text-zinc-500">{s.tag}</p>
+                  <h4 className="mt-1 font-bold">{s.title}</h4>
+                  <p className="mt-1 text-sm text-zinc-200">{s.desc}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="mt-8 grid sm:grid-cols-3 gap-4">
+            <div className="rounded-2xl bg-white/80 border border-black p-4 text-center"><p className="text-4xl font-black">48</p><p className="mt-1 text-xs uppercase tracking-[0.25em] text-zinc-600">Dreams Started</p></div>
+            <div className="rounded-2xl bg-white/80 border border-black p-4 text-center"><p className="text-4xl font-black">$32K</p><p className="mt-1 text-xs uppercase tracking-[0.25em] text-zinc-600">Given Directly</p></div>
+            <div className="rounded-2xl bg-white/80 border border-black p-4 text-center"><p className="text-4xl font-black">217</p><p className="mt-1 text-xs uppercase tracking-[0.25em] text-zinc-600">People Impacted</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="transparency" className="bg-[#F5EFE7] text-zinc-900 border-y border-black/10 py-20">
+        <div className="mx-auto max-w-6xl px-4 grid md:grid-cols-12 gap-12 items-center">
+          <div className="md:col-span-5">
+            <p className="uppercase text-[0.7rem] font-black tracking-[0.25em] text-zinc-600">Transparency</p>
+            <h3 className="font-black text-5xl leading-tight tracking-tight">We keep the books open.</h3>
+            <p className="mt-4 text-zinc-700 max-w-prose">Because trust is the real currency of a movement. You deserve to know where resources go, why they matter, and who they empower.</p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a href="#" className="rounded-full bg-zinc-900 text-white px-5 py-3 text-sm font-semibold hover:opacity-90">View Impact Report</a>
+              <a href="#" className="rounded-full border border-zinc-900 px-5 py-3 text-sm font-semibold hover:bg-zinc-900 hover:text-white">View Budget</a>
+            </div>
+          </div>
+          <div className="md:col-span-7 grid gap-6">
+            <div className="rounded-2xl bg-white border border-black/10 p-6 shadow-sm">
+              <p className="text-sm font-semibold tracking-tight">Allocation Breakdown</p>
+              <p className="mt-2 text-xs text-zinc-600 uppercase tracking-[0.2em]">Programs vs Operations</p>
+              <div className="mt-4 h-4 w-full bg-zinc-200 rounded-full overflow-hidden">
+                <div className="h-full bg-orange-500 rounded-full transition-all duration-1000" style={{ width: "78%" }} />
+              </div>
+              <p className="mt-2 text-xs text-zinc-600">78% Programs • 22% Ops & Growth</p>
+            </div>
+            <div className="rounded-2xl bg-white border border-black/10 p-6 shadow-sm">
+              <p className="text-sm font-semibold tracking-tight">Projects Funded</p>
+              <div className="mt-4 grid grid-cols-8 gap-2">
+                {Array.from({ length: 24 }).map((_, i) => (<div key={i} className="aspect-square bg-orange-500/80 rounded-sm animate-pulse" />))}
+              </div>
+              <p className="mt-2 text-xs text-zinc-600">Each block = 1 funded movement initiative</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="give" className="bg-orange-500 text-zinc-950">
+        <div className="mx-auto max-w-6xl px-4 py-16 grid md:grid-cols-12 gap-6 items-center">
+          <div className="md:col-span-7">
+            <p className="uppercase text-[0.7rem] font-black tracking-[0.25em]">Support the Work</p>
+            <h3 className="mt-2 font-black text-6xl leading-none tracking-tight">Fuel the Movement.</h3>
+            <p className="mt-4 max-w-prose text-zinc-900">You’re not funding an organization; you’re fueling a movement. Your generosity lets us make friends, tell stories, give gifts, and throw parties that transform communities.</p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a href="#" className="rounded-full bg-zinc-950 text-white px-5 py-3 text-sm font-semibold hover:opacity-90" onClick={onCtaClick("give:monthly")}>Give Monthly</a>
+              <a href="#" className="rounded-full border border-zinc-950 px-5 py-3 text-sm font-semibold hover:bg-zinc-950 hover:text-white" onClick={onCtaClick("give:once")}>Give Once</a>
+            </div>
+            <p className="mt-3 text-xs text-zinc-800">Slingshot House is a 501(c)(3) nonprofit. Gifts are tax-deductible as allowed by law.</p>
+          </div>
+          <div className="md:col-span-5 grid sm:grid-cols-3 gap-3">
+            <div className="rounded-2xl bg-white/85 border border-black/10 p-4 shadow-sm"><p className="text-[0.65rem] uppercase font-bold tracking-[0.25em] text-zinc-600">Starter</p><p className="mt-1 text-3xl font-black">$25</p><p className="mt-2 text-zinc-200">Equip a micro-story session.</p></div>
+            <div className="rounded-2xl bg-white/85 border border-black/10 p-4 shadow-sm"><p className="text-[0.65rem] uppercase font-bold tracking-[0.25em] text-zinc-600">Builder</p><p className="mt-1 text-3xl font-black">$100</p><p className="mt-2 text-zinc-200">Fund a community event kit.</p></div>
+            <div className="rounded-2xl bg-white/85 border border-black/10 p-4 shadow-sm"><p className="text-[0.65rem] uppercase font-bold tracking-[0.25em] text-zinc-600">Partner</p><p className="mt-1 text-3xl font-black">$500</p><p className="mt-2 text-zinc-200">Underwrite a short-film story.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="share" className="bg-zinc-950 text-white">
+        <div className="mx-auto max-w-6xl px-4 py-14 grid md:grid-cols-12 gap-6 items-center">
+          <div className="md:col-span-7">
+            <h3 className="font-black text-5xl leading-tight tracking-tight">Bring your story. We build this together.</h3>
+            <p className="mt-4 text-zinc-900 max-w-prose">What you’ve lived matters. Your story could wake something up in someone else.</p>
+          </div>
+          <form className="md:col-span-5 grid gap-3" onSubmit={(e) => { e.preventDefault(); console.log("share:submitted", Object.fromEntries(new FormData(e.currentTarget))); }}>
+            <input required name="full_name" aria-label="Full name" placeholder="Full name" className="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 outline-none placeholder:text-zinc-400 focus:border-white/50" onChange={(e)=>console.debug("share:full_name", e.target.value)} />
+            <input required name="email" aria-label="Email" type="email" placeholder="Email" className="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 outline-none placeholder:text-zinc-400 focus:border-white/50" onChange={(e)=>console.debug("share:email", e.target.value)} />
+            <textarea rows={4} name="story" aria-label="Share your story" placeholder="Share your story…" className="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 outline-none placeholder:text-zinc-400 focus:border-white/50" onChange={(e)=>console.debug("share:story_len", e.target.value.length)} />
+            <button className="rounded-full bg-white text-zinc-950 px-5 py-3 text-sm font-semibold hover:opacity-90" onClick={() => console.log("share:send")}>Send</button>
+            <p className="text-xs text-zinc-400">By sending, you agree to be contacted by Slingshot House.</p>
+          </form>
+        </div>
+      </section>
+
+      <footer className="border-t border-black/10">
+        <div className="mx-auto max-w-6xl px-4 py-12 grid md:grid-cols-12 gap-6">
+          <div className="md:col-span-7">
+            <p className="uppercase text-xs font-black tracking-[0.25em]">Slingshot House</p>
+            <h4 className="mt-2 font-black text-3xl">We fuel movements.</h4>
+          </div>
+          <div className="md:col-span-5 text-sm text-zinc-600 space-y-1">
+            <p>© {new Date().getFullYear()} Slingshot House.</p>
+            <p>Built with courage, curiosity, and community.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<SlingshotHousePage />);
+
+    </script>
+  </body>
+</html>
